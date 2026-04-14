@@ -1,5 +1,7 @@
 package com.enterprise.java.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(Model model) {
+    	List<Book> allBooks = bookRepository.findAll();
+        model.addAttribute("books", allBooks);
         return "index"; 
     }
     
@@ -27,6 +31,9 @@ public class MainController {
     @RequestMapping("/book")
     public String showAddBookForm(Model model) {
         model.addAttribute("book", new Book());
+//        List<Book> books = bookRepository.findAll();
+//        System.out.println("书本数量: " + books.size()); // 看看控制台输出是不是 0
+//        model.addAttribute("books", books);
         return "book";
     }
 
