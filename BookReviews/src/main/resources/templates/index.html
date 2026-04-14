@@ -6,12 +6,22 @@
 </head>
 <body>
 <h1>Book Reviews</h1>
-<ul>
-	<li>
-		<!--Code for getting book links  -->
-	</li>
-</ul>
+    
+    <a th:href="@{/book}">Add Book</a>
 
-<!--Bottom of page, async load of the selected book, details and reviews  -->
+    <ol>
+        <li th:each="b : ${books}">
+            <a href="#" 
+               th:onclick="'getBook(' + ${b.id} + ')'" 
+               th:text="${b.title}"></a>
+            
+            <a th:href="@{'/addReview/' + ${b.id}}">(review)</a>
+        </li>
+    </ol>
+
+    <hr/>
+    <div id="bookdetails">
+        <p>Select a book to view details and reviews.</p>
+    </div>
 </body>
 </html>

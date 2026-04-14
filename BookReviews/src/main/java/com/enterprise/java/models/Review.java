@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Review {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-private int id;
-private int bookId;
-private String review;
+	private int id;
+	private int bookId;
+	private String review;
 }
