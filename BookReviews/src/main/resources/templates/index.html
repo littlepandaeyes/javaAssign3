@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -15,7 +15,7 @@
                th:onclick="'getBook(' + ${b.id} + ')'" 
                th:text="${b.title}"></a>
             
-            <a th:href="@{'/addReview/' + ${b.id}}">(review)</a>
+            <a th:href="@{'/review/' + ${b.id}}">(review)</a>
         </li>
     </ol>
 
