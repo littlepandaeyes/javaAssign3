@@ -38,7 +38,7 @@ public class MainController {
     @RequestMapping("/savebook")
     public String saveBook(Book book) {
         bookRepository.save(book);
-        return "redirect:/";
+        return "redirect:/"; // redirect to index when finished
     }
     
     @RequestMapping("/review/{id}")
@@ -48,7 +48,7 @@ public class MainController {
 			model.addAttribute("book", book);
 			return "review";
 		} else {
-			return "redirect:/"; // 如果书籍不存在，重定向回主页
+			return "redirect:/"; // redirect to index if book not found
 		}
 	}
 }
