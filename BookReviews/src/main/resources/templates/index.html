@@ -12,10 +12,14 @@
     <ol>
         <li th:each="b : ${books}">
             <a href="#" 
+                <!-- Populate book title under hr tag -->
                th:onclick="'getBook(' + ${b.id} + ')'" 
                th:text="${b.title}"></a>
-            
-            <a th:href="@{'/review/' + ${b.id}}">(review)</a>
+                <a th:href="#"
+                <!-- Populate Review under hr tag -->
+                th:onclick="'getReview('+${b.id}+ ')'"
+                th:text="'View Details'"></a>
+            <!-- <a th:href="@{'/review/' + ${b.id}}">(review)</a> -->
         </li>
     </ol>
 
