@@ -1,3 +1,10 @@
+//Assignment 3: Book Reviews App
+//Sarah-Anne Green + Rongjun Zhang
+//Purpose: Create a book review database and web application to manage the 
+// books and reviews. Utilze ansynchronous requests, and implement security 
+// to restrict access requiring user authentication.
+//April 14, 2026
+
 function getBook(id) {
     // Fetches book details and its reviews from the REST API 
     fetch("/api/books/" + id)
@@ -18,7 +25,7 @@ function showBook(data) {
                   "<br/>Authors: " + book.author + 
                   "<ul>";
 
-    // Loop through reviews and add to the list [cite: 9, 14]
+    // Loop through reviews and add to the list
     reviews.forEach(function(r) {
         content += "<li>" + r.review + "</li>";
     });
@@ -27,4 +34,4 @@ function showBook(data) {
     
     // Inject the generated HTML into the bottom div 
     document.getElementById("bookdetails").innerHTML = content;
-}
+}//end of bookscript.js

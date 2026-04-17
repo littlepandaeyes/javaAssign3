@@ -36,7 +36,8 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http)
 	throws Exception {
 		http.authorizeHttpRequests(auth -> auth
-		.requestMatchers("/").permitAll() // index is not authenticated
+		.requestMatchers("/", "/error", "/login", "/review/**", "/savereview", "/reviewscript.js", "/bookscript.js", "/books/**").permitAll()
+		.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 		.requestMatchers(PathRequest.toH2Console()).permitAll()
 		.anyRequest().authenticated())
 		.httpBasic(Customizer.withDefaults())

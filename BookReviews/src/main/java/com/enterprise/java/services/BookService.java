@@ -1,3 +1,10 @@
+//Assignment 3: Book Reviews App
+//Sarah-Anne Green + Rongjun Zhang
+//Purpose: Create a book review database and web application to manage the 
+// books and reviews. Utilze ansynchronous requests, and implement security 
+// to restrict access requiring user authentication.
+//April 14, 2026
+
 package com.enterprise.java.services;
 
 import java.util.List;
@@ -11,6 +18,8 @@ import com.enterprise.java.data.BookRepository;
 import com.enterprise.java.models.Book;
 
 @Service
+
+//Service class to handle business logic related to books
 public class BookService {
 
 	@Autowired
@@ -35,4 +44,4 @@ public class BookService {
 		bookRepository.deleteById(id);
 	}
 	
-}
+}//end of book service class

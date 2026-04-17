@@ -1,14 +1,26 @@
+<!--Assignment 3: Book Reviews App
+Sarah-Anne Green + Rongjun Zhang
+Purpose: Create a book review database and web application to manage the 
+ books and reviews. Utilze ansynchronous requests, and implement security 
+ to restrict access requiring user authentication.
+April 14, 2026-->
+
+<!-- Add Book Page -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add Book</title>
 </head>
 <body>
-	<form th:action="@{/savebook}" method="GET" th:object="${book}">
+
+	<!-- Add Book Form -->
+	<h2>Add Book</h2>
+	<form th:action="@{/savebook}" method="post" th:object="${book}">
 		Title <input type="text" th:field="*{title}"><br/>
 		Author <input type="text" th:field="*{author}"><br/>
 		<input type="submit" value="Save"/>
 	</form>
 </body>
 </html>
+<!--End of book.html-->

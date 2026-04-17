@@ -1,32 +1,37 @@
+<!--Assignment 3: Book Reviews App
+Sarah-Anne Green + Rongjun Zhang
+Purpose: Create a book review database and web application to manage the 
+ books and reviews. Utilze ansynchronous requests, and implement security 
+ to restrict access requiring user authentication.
+April 14, 2026-->
+
+<!-- Main page, displays books registered, will async load the details and reviews
+ at bottom of page, and has links to add new books and reviews -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Book Reviews</title>
+<script src="/reviewscript.js" defer></script>
 </head>
 <body>
 <h1>Book Reviews</h1>
-    
-    <a th:href="@{/book}">Add Book</a>
 
-    <ol>
-        <li th:each="b : ${books}">
-            <a href="#" 
-                <!-- Populate book title under hr tag -->
-               th:onclick="'getBook(' + ${b.id} + ')'" 
-               th:text="${b.title}"></a>
-                <a th:href="#"
-                <!-- Populate Review under hr tag -->
-                th:onclick="'getReview('+${b.id}+ ')'"
-                th:text="'View Details'"></a>
-            <!-- <a th:href="@{'/review/' + ${b.id}}">(review)</a> -->
-        </li>
-    </ol>
+<p><a th:href="@{/book}">Add Book</a></p>
 
-    <hr/>
-    <div id="bookdetails">
-    <div id="reviewdetails">
-        <p>Select a book to view details and reviews.</p>
-    </div>
+<!--Book List and links to reviews-->
+<ol>
+    <li th:each="b : ${books}">
+        <a href="javascript:void(0)" th:onclick="|getBook(${b.id})|" th:text="${b.title}"></a>
+        <a th:href="@{'/review/' + ${b.id}}">review</a>
+    </li>
+</ol>
+
+<!--Page line followed by async content-->
+<hr/>
+<div id="bookdetails"></div>
+<div id="reviewdetails">
+    <p>Select a book to view details and reviews.</p>
+</div>
 </body>
 </html>
+<!--End of index.html-->
